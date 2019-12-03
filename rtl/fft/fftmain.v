@@ -100,7 +100,7 @@ module fftmain(i_clk, i_reset, i_ce,
 	wire		w_s1024;
 	wire	[35:0]	w_d1024;
 	fftstage	#(IWIDTH,IWIDTH+2,18,9,0,
-			1, 3, "cmem_1024.hex")
+			1, 3, "fft/cmem_1024.hex")
 		stage_1024(i_clk, i_reset, i_ce,
 			(!i_reset), i_sample, w_d1024, w_s1024);
 
@@ -109,7 +109,7 @@ module fftmain(i_clk, i_reset, i_ce,
 	wire		w_s512;
 	wire	[35:0]	w_d512;
 	fftstage	#(18,20,18,8,0,
-			1, 3, "cmem_512.hex")
+			1, 3, "fft/cmem_512.hex")
 		stage_512(i_clk, i_reset, i_ce,
 			w_s1024, w_d1024, w_d512, w_s512);
 
@@ -117,7 +117,7 @@ module fftmain(i_clk, i_reset, i_ce,
 	wire		w_s256;
 	wire	[35:0]	w_d256;
 	fftstage	#(18,20,18,7,0,
-			1, 3, "cmem_256.hex")
+			1, 3, "fft/cmem_256.hex")
 		stage_256(i_clk, i_reset, i_ce,
 			w_s512, w_d512, w_d256, w_s256);
 
@@ -125,7 +125,7 @@ module fftmain(i_clk, i_reset, i_ce,
 	wire		w_s128;
 	wire	[35:0]	w_d128;
 	fftstage	#(18,20,18,6,0,
-			1, 3, "cmem_128.hex")
+			1, 3, "fft/cmem_128.hex")
 		stage_128(i_clk, i_reset, i_ce,
 			w_s256, w_d256, w_d128, w_s128);
 
@@ -133,7 +133,7 @@ module fftmain(i_clk, i_reset, i_ce,
 	wire		w_s64;
 	wire	[35:0]	w_d64;
 	fftstage	#(18,20,18,5,0,
-			1, 3, "cmem_64.hex")
+			1, 3, "fft/cmem_64.hex")
 		stage_64(i_clk, i_reset, i_ce,
 			w_s128, w_d128, w_d64, w_s64);
 
@@ -141,7 +141,7 @@ module fftmain(i_clk, i_reset, i_ce,
 	wire		w_s32;
 	wire	[35:0]	w_d32;
 	fftstage	#(18,20,18,4,0,
-			1, 3, "cmem_32.hex")
+			1, 3, "fft/cmem_32.hex")
 		stage_32(i_clk, i_reset, i_ce,
 			w_s64, w_d64, w_d32, w_s32);
 
@@ -149,7 +149,7 @@ module fftmain(i_clk, i_reset, i_ce,
 	wire		w_s16;
 	wire	[35:0]	w_d16;
 	fftstage	#(18,20,18,3,0,
-			1, 3, "cmem_16.hex")
+			1, 3, "fft/cmem_16.hex")
 		stage_16(i_clk, i_reset, i_ce,
 			w_s32, w_d32, w_d16, w_s16);
 
@@ -157,7 +157,7 @@ module fftmain(i_clk, i_reset, i_ce,
 	wire		w_s8;
 	wire	[35:0]	w_d8;
 	fftstage	#(18,20,18,2,0,
-			1, 3, "cmem_8.hex")
+			1, 3, "fft/cmem_8.hex")
 		stage_8(i_clk, i_reset, i_ce,
 			w_s16, w_d16, w_d8, w_s8);
 
