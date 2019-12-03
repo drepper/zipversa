@@ -50,7 +50,7 @@ OBJDIR	:= obj-rv32
 RDELF	:= $(CROSS)-readelf
 OBJDUMP := $(CROSS)-objdump
 SUBMAKE:= $(MAKE) --no-print-directory -C
-BAREMETAL:= -ffreestanding -nostdlib
+BAREMETAL:= -ffreestanding
 #
 #
 NETPROTO:= pkt.c ethproto.c arp.c ipproto.c ipcksum.c icmp.c udpproto.c
