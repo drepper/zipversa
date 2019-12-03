@@ -79,7 +79,7 @@ module	fftstage(i_clk, i_reset, i_ce, i_sync, i_data, o_data, o_sync);
 	parameter		CKPCE = 3;
 	// The COEFFILE parameter contains the name of the file containing the
 	// FFT twiddle factors
-	parameter	COEFFILE="cmem_1024.hex";
+	parameter	COEFFILE="fft/cmem_1024.hex";
 
 `ifdef	VERILATOR
 	parameter [0:0] ZERO_ON_IDLE = 1'b0;
