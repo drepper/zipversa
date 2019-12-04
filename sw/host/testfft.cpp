@@ -41,6 +41,7 @@
 #include <math.h>
 #include <assert.h>
 
+#include <config.h>
 #include "udpsocket.h"
 
 const unsigned	FFT_SIZE = 1024;
@@ -205,7 +206,7 @@ void	impulse_test(UDPSOCKET *skt, int mag, int dly, FILE *dbgfp = NULL) {
 }
 
 int main(int argc, char **argv) {
-	UDPSOCKET *skt = new UDPSOCKET("192.168.15.22");
+UDPSOCKET *skt = new UDPSOCKET(HOSTIPSTR);
 	const char	*fname = "fftresult.bin";
 	FILE	*fp = fopen(fname,"w");
 

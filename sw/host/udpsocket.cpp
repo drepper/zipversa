@@ -45,6 +45,7 @@
 #include <signal.h>
 #include <assert.h>
 
+#include "config.h"
 // #include "port.h"
 #include <sys/mman.h>
 #include <sys/types.h>
@@ -145,7 +146,7 @@ void	UDPSOCKET::bind(void) {
 	hints.ai_socktype = SOCK_DGRAM;
 	hints.ai_flags = AI_PASSIVE; // Fill in my IP for me
 	hints.ai_protocol = 0; // Any protocol can be returned
-	getaddrinfo("192.168.15.1", portstr, &hints, &res);
+getaddrinfo(HOSTIPSTR, portstr, &hints, &res);
 
 	if (::bind(m_skt, res->ai_addr, res->ai_addrlen) < 0) {
 		perror("Bind O/S Err:");

@@ -44,6 +44,7 @@
 #ifndef	ETCNET_H
 #define	ETCNET_H
 
+#include "config.h"
 #include "ethproto.h"
 
 #define	IPADDR(A,B,C,D)	((((A)&0x0ff)<<24)|(((B)&0x0ff)<<16)	\
@@ -55,7 +56,9 @@
 // First, the default MAC --- this is the MAC of the Versa board.  It was
 // generated using /dev/rand, and should probably be changed to something
 // else on your configuration.
+#ifndef DEFAULTMAC
 #define	DEFAULTMAC	0xa25345b6fb5eul
+#endif
 
 // Now, for the IP setup defaults
 //
@@ -63,18 +66,25 @@
 // the fact that this is the network number of my local network (a network with
 // no other purpose than to test my Arty), that my local network is not run by
 // DHCP (or if it were, that this address is reserved to be a static IP).
-#define	DEFAULTIP	IPADDR(192,168,15,22)
+#ifndef DEFAULTIP
+#define	DEFAULTIP	IPADDR(192,168,8,10)
+#endif
+
 //
 // The next issue is how to deal with packets that are not on the local network.
 // The first step is recognizing them, and that's the purpose of the netmask.
 // You might also see this netmask as represented by IPADDR(255,255,255,0),
 // or even 255.255.255.0.  I've just converted it to unsignd here.
-#define	LCLNETMASK	0xffffff00
+#ifndef LCLNETMASK
+#define	LCLNETMASK 0xFFFFFF00
+#endif
 // So, if an IP address doesn't match as coming from my local network, then it
 // needs to be sent to the router first.  While the router IP address isn't
 // used for that purpose, it is used in the ARP query to find the MAC address
 // of the router.  As a result, we need it and define our default here.
-#define	DEFAULT_ROUTERIP	IPADDR(192,168,15,1)
+#ifndef DEFAULT_ROUTERIP
+#define	DEFAULT_ROUTERIP	IPADDR(192,168,8,1)
+#endif
 
 
 // All of these constants will need to be copied into a series of global

@@ -58,7 +58,7 @@ HEADERS := llcomms.h ttybus.h devbus.h twoc.h	\
 	zipelf.h zopcodes.h
 OBJECTS := $(addprefix $(OBJDIR)/,$(subst .cpp,.o,$(SOURCES)))
 BUSOBJS := $(addprefix $(OBJDIR)/,$(subst .cpp,.o,$(BUSSRCS)))
-CFLAGS := -g -Wall -I. -I../../rtl
+CFLAGS := -g -Wall -I. -I../../rtl -I../..
 LIBS :=
 SUBMAKE := $(MAKE) --no-print-directory -C
 
